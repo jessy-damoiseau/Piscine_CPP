@@ -1,0 +1,98 @@
+#include "Bureaucrat.hpp"
+
+// * Constructor/Destructor * //
+
+Bureaucrat::Bureaucrat(): _Name("?"), _Grade(150) {
+	std::cout << "Class Bureaucrat -> Default constructor call" << std::endl;
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat &inst) {
+	std::cout << "Class Bureaucrat -> Copy constructor call" << std::endl;
+	*this = inst;
+}
+
+Bureaucrat::Bureaucrat(std::string Name, int grade) : _Name(Name){
+	std::cout << "Class Bureaucrat -> Parametric constructor call" << std::endl;
+	try{
+		if (grade < 1)
+			throw Bureaucrat::GradeTooHighException();
+		else if (grade > 150)
+			throw Bureaucrat::GradeTooLowException();
+		else
+			_Grade = grade;
+	}
+	catch (const Bureaucrat::GradeTooHighException &e) {
+		std::cerr << e.what() << std::endl;
+		Bureaucrat::~Bureaucrat();
+	}
+	catch (const Bureaucrat::GradeTooLowException &e) {
+		std::cerr << e.what() << std::endl;
+		Bureaucrat::~Bureaucrat();
+	}
+}
+
+Bureaucrat::~Bureaucrat() {
+	std::cout << "Class Bureaucrat -> Destructor call" << std::endl;
+}
+
+// ** get/set ** //
+
+int Bureaucrat::getGrade() const {
+	return _Grade;
+}
+
+std::string Bureaucrat::getName() const {
+	return _Name;
+}
+
+// *** fonction *** //
+
+const char *Bureaucrat::GradeTooHighException::what() const throw() {
+	return ("Error: Grade to high");
+}
+
+const char *Bureaucrat::GradeTooLowException::what() const throw() {
+	return ("Error: Grade to low");
+}
+
+void        Bureaucrat::incGrade() {
+	std::cout << _Name << " promote" << std::endl;
+	try{
+		if (_Grade == 1)
+			throw Bureaucrat::GradeTooHighException();
+		else {
+			std::cout << "yes" << std::endl;
+			_Grade--;
+		}
+	}
+	catch (const Bureaucrat::GradeTooHighException &e) {
+		std::cout << e.what() << std::endl;
+	}
+}
+
+void        Bureaucrat::decGrade() {
+	std::cout << _Name << " demote " << std::endl;
+	try {
+		if (_Grade == 150)
+			throw Bureaucrat::GradeTooLowException();
+		else {
+			std::cout << "NOOOOOOOOOOOO " << std::endl;
+			_Grade++;
+		}
+	}
+	catch (const Bureaucrat::GradeTooLowException &e) {
+		std::cout << e.what() << std::endl;
+	}
+}
+
+// *?* operator *?* //
+
+Bureaucrat  &Bureaucrat::operator=(const Bureaucrat &inst) {
+	_Grade = inst.getGrade();
+	return *this;
+}
+
+std::ostream &operator<<(std::ostream &o, Bureaucrat const &inst){
+	o << inst.getName() << " , bureaucrat grade " << inst.getGrade();
+	return o;
+}
