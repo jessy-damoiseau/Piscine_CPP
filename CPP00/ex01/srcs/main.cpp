@@ -4,7 +4,7 @@
 int main(){
 
     std::string cmd;
-    annuaire page_jaune;
+    PhoneBook page_jaune;
 
     std::cout << "Welcome to the pages jaune" << std::endl;
     std::cout << "What do you want to do? ADD, SEARCH or EXIT?" << std::endl;
@@ -16,9 +16,9 @@ int main(){
             if (cmd == "EXIT")
                 break;
             else if (cmd == "ADD")
-				page_jaune.addToAnnuaire();
+				page_jaune.addToPhoneBook();
             else
-				page_jaune.searchInAnnuaire();
+				page_jaune.searchInPhoneBook();
         }
         else
             std::cout << "unknown query" << std::endl;

@@ -1,29 +1,30 @@
 #include "../header/class_annuaire.hpp"
 #include "../header/page_jaune.h"
 
-annuaire::annuaire() {
+PhoneBook::PhoneBook() {
     //std::cout << "class annuaire -> constructor called" << std::endl;
     this->_NbUser = 0;
+	this->_Nbtab = 0;
     return;
 }
 
-annuaire::~annuaire() {
+PhoneBook::~PhoneBook() {
     //std::cout << "class annuaire -> destructor called" << std::endl;
     return;
 }
 
-void annuaire::addToAnnuaire(){
+void PhoneBook::addToPhoneBook(){
 
-	if (this->_NbUser < 8){
-		this->_AllContact[this->_NbUser].setInfo();
-		this->_NbUser++;
-	}
-	else{
-		std::cout << "there is no more space in the directory" << std::endl;
-	}
+	this->_AllContact[this->_Nbtab++].setInfo();
+	
+	if (_NbUser < 8)
+		_NbUser++;
+	if (_Nbtab == 8)
+		_Nbtab = 0;
+
 }
 
-void annuaire::_PrintTab(){
+void PhoneBook::_PrintTab(){
 	std::string info;
 	std::cout << "--------------------------------------------" << std::endl;
 	for (int Cloop = 0; Cloop < this->_NbUser; Cloop++)
@@ -48,12 +49,12 @@ void annuaire::_PrintTab(){
 	std::cout << "--------------------------------------------" << std::endl;
 }
 
-int	annuaire::_TakeIndex(){
+int	PhoneBook::_TakeIndex(){
 	std::string str;
 	if (this->_NbUser - 1 == 0)
 		std::cout << "choose index 0 or " << this->_NbUser << " to leave" << std::endl;
 	else
-		std::cout << "choose an index between 0 and" << this->_NbUser - 1 << " ou " << this->_NbUser << " to leave" << std::endl;
+		std::cout << "choose an index between 0 and " << this->_NbUser - 1 << " ou " << this->_NbUser << " to leave" << std::endl;
 	getline(std::cin, str);
 	int c = str[0] - '0';
 	while (str.length() != 1 || !isdigit(str[0]) || !(c >= 0 && c <= this->_NbUser))
@@ -69,7 +70,7 @@ int	annuaire::_TakeIndex(){
 	return c;
 }
 
-void annuaire::searchInAnnuaire(){
+void PhoneBook::searchInPhoneBook(){
 
 	int c;
 

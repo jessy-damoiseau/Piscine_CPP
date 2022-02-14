@@ -3,16 +3,17 @@
 #include "class_contact.hpp"
 
 
-class annuaire {
+class PhoneBook {
 public:
-    annuaire();
-    ~annuaire();
-    void addToAnnuaire();
-    void searchInAnnuaire();
+    PhoneBook();
+    ~PhoneBook();
+    void addToPhoneBook();
+    void searchInPhoneBook();
 
 private:
 	contact _AllContact[8];
 	int		_NbUser;
+    int     _Nbtab;
 	void	_PrintTab();
 	int		_TakeIndex();
 };
