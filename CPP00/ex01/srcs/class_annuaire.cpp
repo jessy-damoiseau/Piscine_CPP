@@ -2,14 +2,14 @@
 #include "../header/page_jaune.h"
 
 PhoneBook::PhoneBook() {
-    //std::cout << "class annuaire -> constructor called" << std::endl;
+    std::cout << "class annuaire -> constructor called" << std::endl;
     this->_NbUser = 0;
 	this->_Nbtab = 0;
     return;
 }
 
 PhoneBook::~PhoneBook() {
-    //std::cout << "class annuaire -> destructor called" << std::endl;
+    std::cout << "class annuaire -> destructor called" << std::endl;
     return;
 }
 

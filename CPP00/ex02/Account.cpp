@@ -1,5 +1,7 @@
 #include <iostream>
 #include <string>
+#include <ctime>
+#include <iomanip>
 #include "Account.hpp"
 
 Account::Account(int initial_deposit) : _amount(initial_deposit), _nbDeposits(0), _nbWithdrawals(0){
@@ -84,7 +86,12 @@ int	Account::checkAmount() const {
 }
 
 void Account::_displayTimestamp() {
-	std::cout << "[19920104_091532] ";
+	time_t now = time(0);
+    tm *ltm = localtime(&now);
+    std::cout << "[" << std::setfill('0') << 1900 + ltm->tm_year << std::setw(2) <<
+    1 + ltm->tm_mon << std::setw(2) << ltm->tm_mday << "_" << std::setw(2) << 
+    ltm->tm_hour << std::setw(2) << ltm->tm_min << std::setw(2) << ltm->tm_sec << "] ";
+    return ;
 }
 
 int Account::_nbAccounts = 0;

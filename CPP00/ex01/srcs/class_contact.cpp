@@ -62,10 +62,10 @@ std::string contact::take_DarkestSecret(){
 }
 
 contact::contact() {
-	//std::cout << "class contact -> constructor called" << std::endl;
+	std::cout << "class contact -> constructor called" << std::endl;
 }
 contact::~contact() {
-	//std::cout << "class contact -> destructor called" << std::endl;
+	std::cout << "class contact -> destructor called" << std::endl;
 }
 
 std::string contact::getInfo(int i){
