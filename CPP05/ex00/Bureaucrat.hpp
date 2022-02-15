@@ -23,7 +23,7 @@ public:
 	class   GradeTooLowException;
 
 private:
-	std::string _Name;
+	std::string const _Name;
 	int         _Grade;
 };
 

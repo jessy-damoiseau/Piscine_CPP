@@ -13,7 +13,8 @@ int main() {
 	Fisc.beSigned(Saly);
 	std::cout << std::endl << Fisc << std::endl << std::endl;
 	Fisc.beSigned(John);
-	std::cout << std::endl << Fisc << std::endl << std::endl;
+	std::cout << std::endl << Fisc << std::endl;
+
 
 	return 0;
 }

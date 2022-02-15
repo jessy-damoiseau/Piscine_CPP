@@ -17,6 +17,7 @@ public:
 	std::string getName() const;
 
 	void    beSigned(Bureaucrat &inst);
+	virtual void 	execute(Bureaucrat const & executor) const = 0;
 	
 
 	From    &operator=(From const &inst);

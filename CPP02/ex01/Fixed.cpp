@@ -42,7 +42,7 @@ float Fixed::toFloat() const {
 }
 
 int	Fixed::toInt() const {
-	return (_nb << _bit);
+	return (_nb >> _bit);
 }
 
 /////////////////////////////////////////////////////

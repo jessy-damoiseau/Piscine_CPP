@@ -3,16 +3,16 @@
 // * Constructor/Destructor * //
 
 Bureaucrat::Bureaucrat(): _Name("?"), _Grade(150) {
-	std::cout << "Class Bureaucrat -> Default constructor call" << std::endl;
+	//std::cout << "Class Bureaucrat -> Default constructor call" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &inst) {
-	std::cout << "Class Bureaucrat -> Copy constructor call" << std::endl;
+	//std::cout << "Class Bureaucrat -> Copy constructor call" << std::endl;
 	*this = inst;
 }
 
 Bureaucrat::Bureaucrat(std::string Name, int grade) : _Name(Name){
-	std::cout << "Class Bureaucrat -> Parametric constructor call" << std::endl;
+	//std::cout << "Class Bureaucrat -> Parametric constructor call" << std::endl;
 	try{
 		if (grade < 1)
 			throw Bureaucrat::GradeTooHighException();
@@ -32,7 +32,7 @@ Bureaucrat::Bureaucrat(std::string Name, int grade) : _Name(Name){
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Class Bureaucrat -> Destructor call" << std::endl;
+	//std::cout << "Class Bureaucrat -> Destructor call" << std::endl;
 }
 
 // ** get/set ** //
@@ -60,10 +60,8 @@ void        Bureaucrat::incGrade() {
 	try{
 		if (_Grade == 1)
 			throw Bureaucrat::GradeTooHighException();
-		else {
-			std::cout << "yes" << std::endl;
+		else
 			_Grade--;
-		}
 	}
 	catch (const Bureaucrat::GradeTooHighException &e) {
 		std::cout << e.what() << std::endl;
@@ -75,10 +73,8 @@ void        Bureaucrat::decGrade() {
 	try {
 		if (_Grade == 150)
 			throw Bureaucrat::GradeTooLowException();
-		else {
-			std::cout << "NOOOOOOOOOOOO " << std::endl;
+		else
 			_Grade++;
-		}
 	}
 	catch (const Bureaucrat::GradeTooLowException &e) {
 		std::cout << e.what() << std::endl;
@@ -93,6 +89,6 @@ Bureaucrat  &Bureaucrat::operator=(const Bureaucrat &inst) {
 }
 
 std::ostream &operator<<(std::ostream &o, Bureaucrat const &inst){
-	o << inst.getName() << " , bureaucrat grade " << inst.getGrade();
+	o << inst.getName() << ", bureaucrat grade " << inst.getGrade();
 	return o;
 }
