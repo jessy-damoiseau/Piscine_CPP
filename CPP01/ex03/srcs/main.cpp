@@ -12,7 +12,9 @@ int main()
     Rick.attack();
 
     Weapon weaponB = Weapon("club");
+
     HumanB Jone = HumanB("Jone");
+    Jone.attack();
     Jone.setWeapon(weaponB);
     Jone.attack();
     weaponB.setType("gun");

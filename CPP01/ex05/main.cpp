@@ -8,4 +8,5 @@ int	main()
 	myKaren.complain("WARNING");
 	myKaren.complain("ERROR");
 	myKaren.complain("INFO");
+	myKaren.complain("yo");
 }

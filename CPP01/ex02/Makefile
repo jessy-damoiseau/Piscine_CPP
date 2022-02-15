@@ -21,7 +21,7 @@ SRCS		=	main.cpp
 #                              Commands and arguments                          #
 ################################################################################
 
-CC			=	clang++
+CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 RM			=	rm -rf
 

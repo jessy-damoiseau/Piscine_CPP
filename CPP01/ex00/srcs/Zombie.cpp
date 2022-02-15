@@ -19,5 +19,5 @@ std::string Zombie::getName() const {
 }
 
 void Zombie::Announce() {
-    std::cout << "<" << this->_name << "> " << "BraiiiiiiinnnzzzZ..." << std::endl;
+    std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 }

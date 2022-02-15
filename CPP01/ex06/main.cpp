@@ -1,20 +1,21 @@
 #include "Karen.hpp"
 
-void check_error(int ac, char **av) {
+int check_error(int ac, char **av) {
 
 	std::string tab[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 	if (ac != 2)
-		exit(1);
+		return 1;
 	for (int loop = 0; loop < 4; loop++)
 		if (av[1] == tab[loop])
-			return ;
+			return 0;
 	std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-	exit(0);
+	return 0;
 }
 
 int main(int ac, char **av) {
 
 	Karen myKaren;
-	check_error(ac, av);
+	if (check_error(ac, av))
+		return 1;
 	myKaren.complain(av[1]);
 }
