@@ -15,7 +15,7 @@ Fixed::Fixed(const int raw): _nb(raw << _bit) {
 	std::cout << "class Fixed(Int) -> constructor call" << std::endl;
 }
 
-Fixed::Fixed(const float raw): _nb(std::roundf((1 << _bit) * raw)) {
+Fixed::Fixed(const float raw): _nb(roundf((1 << _bit) * raw)) {
 	std::cout << "class Fixed(Float) -> constructor call" << std::endl;
 }
 
@@ -42,7 +42,7 @@ float Fixed::toFloat() const {
 }
 
 int	Fixed::toInt() const {
-	return (_nb >> _bit);
+	return (_nb << _bit);
 }
 
 /////////////////////////////////////////////////////

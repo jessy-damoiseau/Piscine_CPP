@@ -15,7 +15,7 @@ Fixed::Fixed(const int raw): _nb(raw << _bit) {
 	//std::cout << "class Fixed(Int) -> constructor call" << std::endl;
 }
 
-Fixed::Fixed(const float raw): _nb(std::roundf((1 << _bit) * raw)) {
+Fixed::Fixed(const float raw): _nb(roundf((1 << _bit) * raw)) {
 	//std::cout << "class Fixed(Float) -> constructor call" << std::endl;
 }
 
@@ -40,23 +40,23 @@ float Fixed::toFloat() const {
 }
 
 int	Fixed::toInt() const {
-	return (_nb >> _bit);
+	return (_nb << _bit);
 }
 
 Fixed	&Fixed::min(Fixed &cFixed1, Fixed &cFixed2) {
-	return (cFixed1 > cFixed2 ? cFixed1 : cFixed2);
+	return (cFixed1 < cFixed2 ? cFixed1 : cFixed2);
 }
 
 Fixed	&Fixed::max(Fixed &cFixed1, Fixed &cFixed2) {
-	return (cFixed1 < cFixed2 ? cFixed1 : cFixed2);
-}
-
-const Fixed	&Fixed::min(const Fixed &cFixed1, const Fixed &cFixed2) {
 	return (cFixed1 > cFixed2 ? cFixed1 : cFixed2);
 }
 
-const Fixed	&Fixed::max(const Fixed &cFixed1, const Fixed &cFixed2) {
+const Fixed	&Fixed::min(const Fixed &cFixed1, const Fixed &cFixed2) {
 	return (cFixed1 < cFixed2 ? cFixed1 : cFixed2);
+}
+
+const Fixed	&Fixed::max(const Fixed &cFixed1, const Fixed &cFixed2) {
+	return (cFixed1 > cFixed2 ? cFixed1 : cFixed2);
 }
 
 /////////////////////////////////////////////////////
@@ -105,39 +105,27 @@ Fixed	Fixed::operator/(const Fixed &rhs) const {
 }
 
 bool	Fixed::operator<(const Fixed &rhs) const {
-	if (this->toFloat() < rhs.toFloat())
-		return  EXIT_SUCCESS;
-	return EXIT_FAILURE;
+	return (this->_nb < rhs._nb);
 }
 
 bool	Fixed::operator>(const Fixed &rhs) const {
-	if (this->toFloat() > rhs.toFloat())
-		return  EXIT_SUCCESS;
-	return EXIT_FAILURE;
+	return (this->_nb > rhs._nb);
 }
 
 bool	Fixed::operator<=(const Fixed &rhs) const {
-	if (this->toFloat() <= rhs.toFloat())
-		return  EXIT_SUCCESS;
-	return EXIT_FAILURE;
+	return (this->_nb <= rhs._nb);
 }
 
 bool	Fixed::operator>=(const Fixed &rhs) const {
-	if (this->toFloat() >= rhs.toFloat())
-		return  EXIT_SUCCESS;
-	return EXIT_FAILURE;
+	return (this->_nb >= rhs._nb);
 }
 
 bool	Fixed::operator==(const Fixed &rhs) const {
-	if (this->toFloat() == rhs.toFloat())
-		return  EXIT_SUCCESS;
-	return EXIT_FAILURE;
+	return (this->_nb == rhs._nb);
 }
 
 bool	Fixed::operator!=(const Fixed &rhs) const {
-	if (this->toFloat() != rhs.toFloat())
-		return  EXIT_SUCCESS;
-	return EXIT_FAILURE;
+	return (this->_nb != rhs._nb);
 }
 
 
