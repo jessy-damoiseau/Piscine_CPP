@@ -3,7 +3,7 @@
 
 #include <iostream>
 #include <exception>
-#include "From.hpp"
+#include "Form.hpp"
 
 
 class From;
@@ -21,6 +21,7 @@ public:
 	void    incGrade();
 	void    decGrade();
 	void    signFrom(From &inst);
+	void	executeForm(From const & form) const;
 
 	Bureaucrat  &operator=(Bureaucrat const &inst);
 

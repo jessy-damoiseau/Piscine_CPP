@@ -21,11 +21,7 @@ Bureaucrat::Bureaucrat(std::string Name, int grade) : _Name(Name){
 		else
 			_Grade = grade;
 	}
-	catch (const Bureaucrat::GradeTooHighException &e) {
-		std::cerr << e.what() << std::endl;
-		Bureaucrat::~Bureaucrat();
-	}
-	catch (const Bureaucrat::GradeTooLowException &e) {
+	catch (const std::exception &e) {
 		std::cerr << e.what() << std::endl;
 		Bureaucrat::~Bureaucrat();
 	}
@@ -55,7 +51,7 @@ void        Bureaucrat::incGrade() {
 		else
 			_Grade--;
 	}
-	catch (const Bureaucrat::GradeTooHighException &e) {
+	catch (const std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
 }
@@ -68,7 +64,7 @@ void        Bureaucrat::decGrade() {
 		else
 			_Grade++;
 	}
-	catch (const Bureaucrat::GradeTooLowException &e) {
+	catch (const std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
 }

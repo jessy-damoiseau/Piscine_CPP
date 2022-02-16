@@ -61,7 +61,7 @@ void From::beSigned(Bureaucrat &inst) {
 			_Signed = true;
 		}
 	}
-	catch (const From::GradeTooLowException &e){
+	catch (const std::exception &e){
 		std::cout << e.what() << std::endl;
 	}
 	inst.signFrom(*this);

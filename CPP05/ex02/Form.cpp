@@ -1,4 +1,4 @@
-#include "From.hpp"
+#include "Form.hpp"
 
 // * Constructor/Destructor * //
 
@@ -61,7 +61,7 @@ void From::beSigned(Bureaucrat &inst) {
 			_Signed = true;
 		}
 	}
-	catch (const From::GradeTooLowException &e){
+	catch (const std::exception &e){
 		std::cout << e.what() << std::endl;
 	}
 	inst.signFrom(*this);
@@ -89,9 +89,13 @@ std::ostream &operator<<(std::ostream &o, From const &inst){
 // *!* exception *!* //
 
 const char *From::GradeTooHighException::what() const throw() {
-	return ("Error-From: Grade to high");
+	return ("Error-Form: Grade to high");
 }
 
 const char *From::GradeTooLowException::what() const throw() {
-	return ("Error-From: Grade to low");
+	return ("Error-Form: Grade to low");
+}
+
+const char *From::execFail::what() const throw() {
+	return ("Error-Form: form unsigned");
 }

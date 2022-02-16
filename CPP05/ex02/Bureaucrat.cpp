@@ -21,11 +21,7 @@ Bureaucrat::Bureaucrat(std::string Name, int grade) : _Name(Name){
 		else
 			_Grade = grade;
 	}
-	catch (const Bureaucrat::GradeTooHighException &e) {
-		std::cerr << e.what() << std::endl;
-		Bureaucrat::~Bureaucrat();
-	}
-	catch (const Bureaucrat::GradeTooLowException &e) {
+	catch (const std::exception &e) {
 		std::cerr << e.what() << std::endl;
 		Bureaucrat::~Bureaucrat();
 	}
@@ -55,7 +51,7 @@ void        Bureaucrat::incGrade() {
 		else
 			_Grade--;
 	}
-	catch (const Bureaucrat::GradeTooHighException &e) {
+	catch (const std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
 }
@@ -68,7 +64,7 @@ void        Bureaucrat::decGrade() {
 		else
 			_Grade++;
 	}
-	catch (const Bureaucrat::GradeTooLowException &e) {
+	catch (const std::exception &e) {
 		std::cout << e.what() << std::endl;
 	}
 }
@@ -80,6 +76,16 @@ void        Bureaucrat::signFrom(From &inst) {
 		std::cout << _Name << " couldn't sign " << inst.getName() << " because grade to low" << std::endl;
 }
 
+void		Bureaucrat::executeForm(From const & form) const {
+	if (!form.getSigned())
+		std::cout << this->getName() << " does not execute the form because it is not signed" << std::endl;
+	else{
+		if (this->getGrade() <= form.getGradeExec())
+			std::cout << this->getName() << " executed " << form.getName() << std::endl;
+		else
+			std::cout << this->getName() << "does not execute the form because his grade is too low" << std::endl;
+	}
+}	
 // *?* operator *?* //
 
 Bureaucrat  &Bureaucrat::operator=(const Bureaucrat &inst) {

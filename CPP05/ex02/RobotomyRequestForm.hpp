@@ -1,7 +1,10 @@
 #ifndef ROBOTOMYREQUESTFROM_HPP
 #define ROBOTOMYREQUESTFROM_HPP
 
-#include "From.hpp"
+#include "Form.hpp"
+#include <cstdlib>
+
+class Bureaucrat;
 
 class RobotomyRequestFrom : public From{
 public:
@@ -10,7 +13,9 @@ public:
     RobotomyRequestFrom(std::string Traget);
     ~RobotomyRequestFrom();
 
-    virtual void 	execute(Bureaucrat const & executor) const;
+    std::string     getTraget() const;
+
+    virtual void 	execute(Bureaucrat const & inst) const;
 
     RobotomyRequestFrom &operator=(RobotomyRequestFrom const &inst);
 private:

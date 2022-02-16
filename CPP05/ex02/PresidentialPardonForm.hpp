@@ -1,7 +1,10 @@
 #ifndef PRESIDENTIALPARDONFROM_HPP
 #define PRESIDENTIALPARDONFROM_HPP
 
-#include "From.hpp"
+#include "Form.hpp"
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class PresidentialPardonFrom : public From {
 public:
@@ -10,7 +13,9 @@ public:
     PresidentialPardonFrom(std::string Traget);
     ~PresidentialPardonFrom();
 
-    virtual void 	execute(Bureaucrat const & executor) const;
+    std::string     getTraget() const;
+
+    virtual void 	execute(Bureaucrat const &inst) const;
 
     PresidentialPardonFrom  &operator=(PresidentialPardonFrom const &inst);
 private:

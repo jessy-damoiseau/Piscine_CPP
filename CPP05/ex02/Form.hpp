@@ -24,6 +24,7 @@ public:
 
 	class GradeTooHighException;
 	class GradeTooLowException;
+	class execFail;
 private:
 	std::string const 	_Name;
 	bool        		_Signed;
@@ -37,6 +38,11 @@ public:
 };
 
 class From::GradeTooLowException : public std::exception {
+public:
+	virtual const char *what() const throw();
+};
+
+class From::execFail : public std::exception {
 public:
 	virtual const char *what() const throw();
 };
