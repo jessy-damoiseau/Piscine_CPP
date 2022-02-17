@@ -29,6 +29,18 @@ int main() {
 				<< "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
 				<< myTrap.getAttackPoints() << "\n" << std::endl;
 
+	myTrap.takeDamage(10);
+
+	std::cout	<< "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
+				<< "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
+				<< myTrap.getAttackPoints() << "\n" << std::endl;
+
+	myTrap.beRepaired(10);
+
+	std::cout	<< "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
+				<< "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
+				<< myTrap.getAttackPoints() << "\n" << std::endl;
+
 	//////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 	std::cout << "\t// *** ScavTrap *** //\n" << std::endl;
@@ -63,5 +75,16 @@ int main() {
 				 << "\nenergy points -> " << myScav.getEnergyPoints() << "\nattack damage -> "
 				 << myScav.getAttackPoints() << "\n" << std::endl;
 
+	myScav.takeDamage(60);
+	
+	std::cout	<< "\nScavTrap :\nname -> " << myScav.getName() << "\nhit points -> " << myScav.getHitPoints()
+				 << "\nenergy points -> " << myScav.getEnergyPoints() << "\nattack damage -> "
+				 << myScav.getAttackPoints() << "\n" << std::endl;
+
+	myScav.beRepaired(50);
+
+	std::cout	<< "\nScavTrap :\nname -> " << myScav.getName() << "\nhit points -> " << myScav.getHitPoints()
+				 << "\nenergy points -> " << myScav.getEnergyPoints() << "\nattack damage -> "
+				 << myScav.getAttackPoints() << "\n" << std::endl;
 	return 0;
 }

@@ -29,8 +29,26 @@ ScavTrap::~ScavTrap() {
 
 // *** function *** //
 
+void	ScavTrap::attack(std::string const &Target) {
+	if (this->getEnergyPoints() && this->getHitPoints()){
+		std::cout << "ScavTrap " << this->getName() << " attack " << Target << " causing " << this->getAttackPoints() << " points of damage !" << std::endl;
+		this->setEnergyPoints(this->getEnergyPoints() - 1);
+	}
+	else if (!this->getEnergyPoints())
+		std::cout << "ScavTrap " << this->getName() << "has no more energy" << std::endl;
+	else
+		std::cout << "ScavTrap " << this->getName() << "has no more life" << std::endl;
+}
+
 void	ScavTrap::guardGate() {
-	std::cout << "ScavTrap " << this->getName() << " have enterred in Gate keeper mode" << std::endl;
+	if (this->getEnergyPoints() && this->getHitPoints()){
+		std::cout << "ScavTrap " << this->getName() << " have enterred in Gate keeper mode" << std::endl;
+		this->setEnergyPoints(this->getEnergyPoints() - 1);
+	}
+	else if (!this->getEnergyPoints())
+		std::cout << "ScavTrap " << this->getName() << "has no more energy" << std::endl;
+	else
+		std::cout << "ScavTrap " << this->getName() << "has no more life" << std::endl;;
 }
 
 // *?* operator *?* //

@@ -1,4 +1,6 @@
 #include "../header/DiamondTrap.hpp"
+#include <iostream>
+#include<cstdlib>
 
 int	check_error(std::string str){
 
@@ -16,27 +18,39 @@ void	function_ClapTrap(){
 
 	ClapTrap myTrap("jean-claude");
 
-	std::cout << "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
-			  << "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
-			  << myTrap.getAttackPoints() << "\n" << std::endl;
+	std::cout	<< "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
+				<< "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
+				<< myTrap.getAttackPoints() << "\n" << std::endl;
 
 	myTrap.attack("Fred");
 
-	std::cout << "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
-			  << "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
-			  << myTrap.getAttackPoints() << "\n" << std::endl;
+	std::cout	<< "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
+				<< "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
+			  	<< myTrap.getAttackPoints() << "\n" << std::endl;
 
 	myTrap.takeDamage(5);
 
-	std::cout << "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
-			  << "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
-			  << myTrap.getAttackPoints() << "\n" << std::endl;
+	std::cout 	<< "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
+			  	<< "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
+			  	<< myTrap.getAttackPoints() << "\n" << std::endl;
 
 	myTrap.beRepaired(2);
 
-	std::cout << "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
-			  << "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
-			  << myTrap.getAttackPoints() << "\n" << std::endl;
+	std::cout	<< "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
+				<< "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
+				<< myTrap.getAttackPoints() << "\n" << std::endl;
+
+	myTrap.takeDamage(10);
+
+	std::cout	<< "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
+				<< "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
+				<< myTrap.getAttackPoints() << "\n" << std::endl;
+
+	myTrap.beRepaired(10);
+
+	std::cout	<< "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
+				<< "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
+				<< myTrap.getAttackPoints() << "\n" << std::endl;
 }
 
 void	function_ScavTrap(){
@@ -67,6 +81,23 @@ void	function_ScavTrap(){
 				 << myScav.getAttackPoints() << "\n" << std::endl;
 
 	myScav.guardGate();
+
+	std::cout	<< "\nScavTrap :\nname -> " << myScav.getName() << "\nhit points -> " << myScav.getHitPoints()
+				 << "\nenergy points -> " << myScav.getEnergyPoints() << "\nattack damage -> "
+				 << myScav.getAttackPoints() << "\n" << std::endl;
+
+	myScav.takeDamage(60);
+	
+	std::cout	<< "\nScavTrap :\nname -> " << myScav.getName() << "\nhit points -> " << myScav.getHitPoints()
+				 << "\nenergy points -> " << myScav.getEnergyPoints() << "\nattack damage -> "
+				 << myScav.getAttackPoints() << "\n" << std::endl;
+
+	myScav.beRepaired(50);
+
+	std::cout	<< "\nScavTrap :\nname -> " << myScav.getName() << "\nhit points -> " << myScav.getHitPoints()
+				 << "\nenergy points -> " << myScav.getEnergyPoints() << "\nattack damage -> "
+				 << myScav.getAttackPoints() << "\n" << std::endl;
+
 }
 
 void	function_FragTrap(){
@@ -97,6 +128,20 @@ void	function_FragTrap(){
 				 << myFrag.getAttackPoints() << "\n" << std::endl;
 
 	myFrag.highFiveGuys();
+
+	std::cout	<< "\nScavTrap :\nname -> " << myFrag.getName() << "\nhit points -> " << myFrag.getHitPoints()
+				 << "\nenergy points -> " << myFrag.getEnergyPoints() << "\nattack damage -> "
+				 << myFrag.getAttackPoints() << "\n" << std::endl;
+
+	myFrag.takeDamage(70);
+
+	std::cout	<< "\nScavTrap :\nname -> " << myFrag.getName() << "\nhit points -> " << myFrag.getHitPoints()
+				 << "\nenergy points -> " << myFrag.getEnergyPoints() << "\nattack damage -> "
+				 << myFrag.getAttackPoints() << "\n" << std::endl;
+
+	myFrag.highFiveGuys();
+
+	std::cout << std::endl;
 }
 
 void 	function_DiamondTrap(){
@@ -107,19 +152,19 @@ void 	function_DiamondTrap(){
 				<< myDiamond.getHitPoints() << "\nenergy points -> " << myDiamond.getEnergyPoints()
 				<< "\nattack damage -> " << myDiamond.getAttackPoints() << "\n" << std::endl;
 
-	myDiamond.ClapTrap::attack("Sam");
+	myDiamond.attack("Sam");
 
 	std::cout	<< "\nDiamondTrap :\nname -> " << myDiamond.getDiamondTrapName() << "\nhit points -> "
 				 << myDiamond.getHitPoints() << "\nenergy points -> " << myDiamond.getEnergyPoints()
 				 << "\nattack damage -> " << myDiamond.getAttackPoints() << "\n" << std::endl;
 
-	myDiamond.ClapTrap::takeDamage(20);
+	myDiamond.takeDamage(20);
 
 	std::cout	<< "\nDiamondTrap :\nname -> " << myDiamond.getDiamondTrapName() << "\nhit points -> "
 				 << myDiamond.getHitPoints() << "\nenergy points -> " << myDiamond.getEnergyPoints()
 				 << "\nattack damage -> " << myDiamond.getAttackPoints() << "\n" << std::endl;
 
-	myDiamond.ClapTrap::beRepaired(10);
+	myDiamond.beRepaired(10);
 
 	std::cout	<< "\nDiamondTrap :\nname -> " << myDiamond.getDiamondTrapName() << "\nhit points -> "
 				 << myDiamond.getHitPoints() << "\nenergy points -> " << myDiamond.getEnergyPoints()
@@ -130,6 +175,7 @@ void 	function_DiamondTrap(){
 	myDiamond.guardGate();
 	myDiamond.whoAmI();
 	std::cout << std::endl;
+
 
 }
 

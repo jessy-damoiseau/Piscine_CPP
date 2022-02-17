@@ -25,5 +25,18 @@ int main() {
 	std::cout	<< "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
 				<< "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
 				<< myTrap.getAttackPoints() << "\n" << std::endl;
+
+	myTrap.takeDamage(10);
+
+	std::cout	<< "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
+				<< "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
+				<< myTrap.getAttackPoints() << "\n" << std::endl;
+
+	myTrap.beRepaired(10);
+
+	std::cout	<< "\nClapTrap :\nname -> " << myTrap.getName() << "\nhit points -> " << myTrap.getHitPoints()
+				<< "\nenergy points -> " << myTrap.getEnergyPoints() << "\nattack damage -> "
+				<< myTrap.getAttackPoints() << "\n" << std::endl;
+
 	return 0;
 }

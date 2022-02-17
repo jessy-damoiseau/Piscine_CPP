@@ -34,6 +34,11 @@ std::string DiamondTrap::getDiamondTrapName() {
 
 // *** function *** //
 
+void	DiamondTrap::attack(std::string const &Target) {
+	std::cout << "oui" << std::endl;
+	ScavTrap::attack(Target);
+}
+
 void	DiamondTrap::whoAmI() {
 	std::cout << "Heyy I'm " << _Name << " And my clap name is " << this->getName() << std::endl;
 }

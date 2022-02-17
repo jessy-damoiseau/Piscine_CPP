@@ -29,18 +29,35 @@ FragTrap::~FragTrap() {
 
 // *** fonction *** //
 
+void	FragTrap::attack(std::string const &Target) {
+	if (this->getEnergyPoints() && this->getHitPoints()){
+		std::cout << "FragTrap " << this->getName() << " attack " << Target << " causing " << this->getAttackPoints() << " points of damage !" << std::endl;
+		this->setEnergyPoints(this->getEnergyPoints() - 1);
+	}
+	else if (!this->getEnergyPoints())
+		std::cout << "FragTrap " << this->getName() << "has no more energy" << std::endl;
+	else
+		std::cout << "FragTrap " << this->getName() << "has no more life" << std::endl;
+}
+
 void	FragTrap::highFiveGuys() {
 	std::cout << "Heyyy go high fives guys !!" << std::endl;
-	for (int loop = 0 ; loop < 3; loop++) {
+	if (this->getEnergyPoints() && this->getHitPoints()){
+		for (int loop = 0 ; loop < 3; loop++) {
+			sleep(1);
+			std::cout << "." << std::flush;
+			if (loop != 2)
+				std::cout << " " << std::flush;
+		}
 		sleep(1);
-		std::cout << "." << std::flush;
-		if (loop != 2)
-			std::cout << " " << std::flush;
+		std::cout << std::endl;
+		std::cout << "* Clap !! *" << std::endl;
+		sleep(1);
 	}
-	sleep(1);
-	std::cout << std::endl;
-	std::cout << "* Clap !! *" << std::endl;
-	sleep(1);
+	else if (!this->getEnergyPoints())
+		std::cout << "FragTrap " << this->getName() << "has no more energy too bad" << std::endl;
+	else
+		std::cout << "FragTrap " << this->getName() << "has no more life too bad" << std::endl;
 }
 
 // *?* operator *?* //

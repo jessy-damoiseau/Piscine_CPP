@@ -56,18 +56,33 @@ void	ClapTrap::setHitPoints(unsigned int amount) {
 // *** fonction *** //
 
 void	ClapTrap::attack(const std::string &target) {
-	std::cout << "ClapTrap " << _Name << " attack " << target
-	<< " causing " << _AttackDamage << " points of damage !" << std::endl;
+	if (_EnergyPoints && _HitPoints){
+		std::cout << "ClapTrap " << _Name << " attack " << target << " causing " << _AttackDamage << " points of damage !" << std::endl;
+		_EnergyPoints--;
+	}
+	else if (!_EnergyPoints)
+		std::cout << "ClapTrap " << _Name << "has no more energy" << std::endl;
+	else
+		std::cout << "Claptrap " << _Name << "has no more life" << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount) {
 	std::cout << "ClapTrap " << _Name << " take " << amount << " damage !" << std::endl;
 	_HitPoints -= amount;
+	if (_HitPoints < 0)
+		_HitPoints = 0;
 }
 
 void	ClapTrap::beRepaired(unsigned int amount) {
-	std::cout << "ClapTrap " << _Name << " heal " << amount << " hit points !" << std::endl;
-	_HitPoints += amount;
+	if (_EnergyPoints && _HitPoints){
+		std::cout << "ClapTrap " << _Name << " heal " << amount << " hit points !" << std::endl;
+		_HitPoints += amount;
+		_EnergyPoints--;
+	}
+	else if (!_EnergyPoints)
+		std::cout << "ClapTrap " << _Name << "has no more energy" << std::endl;
+	else
+		std::cout << "Claptrap " << _Name << "has no more life" << std::endl;
 }
 
 // *?* operator *?* //
