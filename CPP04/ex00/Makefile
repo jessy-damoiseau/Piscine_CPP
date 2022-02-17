@@ -2,7 +2,7 @@ NAME = Polymorphism
 
 ################################################################################
 
-SRCS = main.cpp  class_animal.cpp class_dog.cpp class_cat.cpp
+SRCS = main.cpp  class_animal.cpp class_dog.cpp class_cat.cpp WrongAnimal.cpp WrongCat.cpp
 
 ################################################################################
 

@@ -2,7 +2,7 @@ NAME = Brain
 
 ################################################################################
 
-SRCS = main.cpp  class_animal.cpp class_dog.cpp class_cat.cpp class_brain.cpp
+SRCS = main.cpp  class_animal.cpp class_dog.cpp class_cat.cpp class_brain.cpp WrongAnimal.cpp WrongCat.cpp
 
 ################################################################################
 

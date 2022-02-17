@@ -4,17 +4,17 @@
 // * Constructor/Destructor * //
 
 Cat::Cat(): Animal("Cat"), _Sound("Miaaa") {
-	//std::cout << "Class Cat -> Default constructor call" << std::endl;
+	std::cout << "Class Cat -> Default constructor call" << std::endl;
 	_Brain = new Brain();
 }
 
 Cat::Cat(const Cat &inst) {
-	//std::cout << "Class Cat -> Copy constructor call" << std::endl;
+	std::cout << "Class Cat -> Copy constructor call" << std::endl;
 	*this = inst;
 }
 
 Cat::~Cat() {
-	//std::cout << "Class Cat -> Destructor call" << std::endl;
+	std::cout << "Class Cat -> Destructor call" << std::endl;
 	delete _Brain;
 }
 
@@ -49,6 +49,7 @@ void Cat::makeSound() const {
 
 Cat &Cat::operator=(const Cat &inst) {
 	Animal::operator=(inst);
+	_Brain = inst._Brain;
 	_Sound = inst.getSound();
 	return *this;
 }

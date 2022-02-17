@@ -6,7 +6,7 @@ class Cat: public Animal{
 public:
 	Cat();
 	Cat(Cat const &inst);
-	~Cat();
+	virtual ~Cat();
 
 	virtual std::string	getSound() const;
 	virtual void		makeSound() const;

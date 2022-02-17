@@ -5,5 +5,7 @@
 #include "class_animal.hpp"
 #include "class_cat.hpp"
 #include "class_dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 #endif

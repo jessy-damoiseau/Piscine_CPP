@@ -3,17 +3,17 @@
 // * Constructor/Destructor * //
 
 Dog::Dog(): Animal("Dog"), _Sound("Waaaf") {
-	//std::cout << "Class Dog -> Default constructor call" << std::endl;
+	std::cout << "Class Dog -> Default constructor call" << std::endl;
 	_Brain = new Brain();
 }
 
 Dog::Dog(const Dog &inst) {
-	//std::cout << "Class Dog -> Copy constructor call" << std::endl;
+	std::cout << "Class Dog -> Copy constructor call" << std::endl;
 	*this = inst;
 }
 
 Dog::~Dog() {
-	//std::cout << "Class Dog -> Destructor call" << std::endl;
+	std::cout << "Class Dog -> Destructor call" << std::endl;
 	delete _Brain;
 }
 
