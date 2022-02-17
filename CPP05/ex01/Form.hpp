@@ -1,15 +1,15 @@
-#ifndef FROM_HPP
-#define FROM_HPP
+#ifndef FORM_HPP
+#define FORM_HPP
 #include "Bureaucrat.hpp"
 
 class Bureaucrat;
 
-class From{
+class Form{
 public:
-	From();
-	From(From const &inst);
-	From(std::string Name, int Grade_sign, int Grade_exec);
-	~From();
+	Form();
+	Form(Form const &inst);
+	Form(std::string Name, int Grade_sign, int Grade_exec);
+	~Form();
 
 	bool        getSigned() const;
 	int         getGradeSign() const;
@@ -17,9 +17,9 @@ public:
 	std::string getName() const;
 
 	void    beSigned(Bureaucrat &inst);
-	
 
-	From    &operator=(From const &inst);
+
+	Form    &operator=(Form const &inst);
 
 	class GradeTooHighException;
 	class GradeTooLowException;
@@ -30,16 +30,16 @@ private:
 	int const        	_GradeExec;
 };
 
-class From::GradeTooHighException : public std::exception {
+class Form::GradeTooHighException : public std::exception {
 public:
 	virtual const char *what() const throw();
 };
 
-class From::GradeTooLowException : public std::exception {
+class Form::GradeTooLowException : public std::exception {
 public:
 	virtual const char *what() const throw();
 };
 
-std::ostream    &operator<<(std::ostream &o, From const &inst);
+std::ostream    &operator<<(std::ostream &o, Form const &inst);
 
 #endif

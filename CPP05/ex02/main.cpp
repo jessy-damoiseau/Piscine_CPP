@@ -9,9 +9,9 @@ int main() {
 	srand(time(0));
 	Bureaucrat  John("john", 1);
 	Bureaucrat  Saly("Saly", 150);
-	PresidentialPardonFrom lettre("Bigard");
-	ShrubberyCreationFrom	jardin("Elysee");
-	RobotomyRequestFrom		human("Macron");
+	PresidentialPardonForm lettre("Bigard");
+	ShrubberyCreationForm	jardin("Elysee");
+	RobotomyRequestForm		human("Macron");
 
 
 	std::cout << John << std::endl;

@@ -1,10 +1,10 @@
 #include "Bureaucrat.hpp"
-#include "From.hpp"
+#include "Form.hpp"
 
 int main() {
 	Bureaucrat  John("john", 1);
 	Bureaucrat  Saly("Saly", 150);
-	From        Fisc("Fisc", 1, 1);
+	Form        Fisc("Fisc", 1, 1);
 
 	std::cout << Fisc << std::endl << std::endl;
 	std::cout << John << std::endl;

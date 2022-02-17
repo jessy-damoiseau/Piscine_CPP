@@ -69,7 +69,7 @@ void        Bureaucrat::decGrade() {
 	}
 }
 
-void        Bureaucrat::signFrom(From &inst) {
+void        Bureaucrat::signForm(Form &inst) {
 	if (inst.getSigned())
 		std::cout << _Name << " signed " << inst.getName() << std::endl;
 	else

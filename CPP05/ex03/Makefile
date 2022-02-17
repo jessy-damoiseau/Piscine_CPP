@@ -15,7 +15,8 @@ OBJS_DIR	=	objs
 #                               Sources filenames                              #
 ################################################################################
 
-SRCS		=	Bureaucrat.cpp main.cpp Form.cpp
+SRCS		=	Bureaucrat.cpp main.cpp Form.cpp PresidentialPardonForm.cpp\
+				RobotomyRequestForm.cpp ShrubberyCreationForm.cpp Intern.cpp
 
 ################################################################################
 #                              Commands and arguments                          #
