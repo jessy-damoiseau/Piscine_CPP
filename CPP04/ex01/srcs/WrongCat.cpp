@@ -2,7 +2,7 @@
 
 // * Constructor/Destructor * //
 
-WrongCat::WrongCat(): WrongAnimal("WrongCat"), _WrongSound("MIAAAAAAAAAAAAA") {
+WrongCat::WrongCat(): WrongAnimal("WrongCat") {
 	std::cout << "Class WrongCat -> Default constructor call" << std::endl;
 }
 
@@ -17,20 +17,16 @@ WrongCat::~WrongCat() {
 
 // ** get/set ** //
 
-std::string WrongCat::getSound() const {
-	return _WrongSound;
-}
 
 // *** fonction *** //
 
 void WrongCat::makeSound() const {
-	std::cout << _WrongSound << std::endl;
+	std::cout << "MIAAAAAAAAAA" << std::endl;
 }
 
 // *?* operator *?* //
 
 WrongCat &WrongCat::operator=(const WrongCat &inst) {
 	WrongAnimal::operator=(inst);
-	_WrongSound = inst.getSound();
 	return *this;
 }

@@ -49,6 +49,7 @@ void Cat::makeSound() const {
 
 Cat &Cat::operator=(const Cat &inst) {
 	Animal::operator=(inst);
+	_Brain = new Brain(*inst._Brain);
 	_Sound = inst.getSound();
 	return *this;
 }
