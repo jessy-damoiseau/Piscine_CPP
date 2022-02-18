@@ -22,7 +22,7 @@ SRCS		=	Bureaucrat.cpp main.cpp Form.cpp PresidentialPardonForm.cpp\
 #                              Commands and arguments                          #
 ################################################################################
 
-CC			=	clang++
+CC			=	c++
 CFLAGS		=	-Wall -Wextra -Werror -g3 -std=c++98
 RM			=	rm -rf
 
