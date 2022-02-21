@@ -1,74 +1,38 @@
 #include <iostream>
+#include <cmath>
+#include <limits>
 #include <string>
+#include <cstring>
 
-#define CHAR 0
-#define INT 1
-#define FLOAT 2
-#define DOUBLE 3
-#define ERROR -1
-
-typedef struct s_stock{
-
-	char    c;
-	int     i;
-	float   f;
-	double  d;
-}t_stock;
-
-int check_error(std::string str){
-	int minus = 0, point = 0, letter = 0;
-
-	if (str.length() == 1)
-		return CHAR;
-	if (strcmp(str, "+inff") || strcmp(str, "-inff") || strcmp(str, "nanf"))
-		return FLOAT;
-	if (strcmp(str, "+inf") || strcmp(str, "-inf") || strcmp(str, "nan"))
-		return DOUBLE;
-	for (int i = 0; i < str.length(); i++){
-		if (str[i] == '-')
-			minus++;
-		else if (!isdigit(str[i]))
-			letter++;
-		else if (str[i] == '.')
-			point++;
+bool check(std::string str){
+	std::string tab[] = {"-inff", "inff", "-inf", "inf", "nanf", "nan"};
+	for(int i = 0; i < 6; i++){
+		if (str == tab[i])
+			return true;
 	}
-	if (point > 1 || letter > 1 || isalpha(str[str.length()]) || str[str.length()] == 'f') || minus > 1)
-	for (int i = 0; i < str.length(); i++) {
-		if (str[i] == '.') {
-			if (str[str.length()] == 'f')
-				return FLOAT;
-			return DOUBLE;
-		}
-	}
-
-	return (INT);
+	return false;
 }
 
-
-int print(std::string str){
-	t_stock stock;
-	int c = check_error(str);
-	if (c == -1){
-		std::cout << "Error" << std::endl;
-		return 1;
-	}
-	if (c == CHAR)
-		stock.c = str[0];
-	else if (c == INT)
-		stock.i = stoi(str);
-	else if (c == FLOAT)
-		stock.i = stof(str);
+void print(std::string str, bool check){
+	if (check && (str == "nan" || str == "nanf"))
+		std::cout << "char: impossible" << std::endl;
+	else if (atol(str.c_str()) == 0)
+		std::cout << "char: Non displayable" << std::endl;
 	else
-		stock.i = stod(str);
-
+		std::cout << "char: " << static_cast<char>(atoi(str.c_str())) << std::endl;
+	if (check && (str == "nan" || str == "nanf"))
+		std::cout << "int: impossible" << std::endl;
+	else
+		std::cout << "int: " << static_cast<int>(atol(str.c_str())) << std::endl;
+	std::cout << "float: " << static_cast<float>(atof(str.c_str())) << "f" << std::endl;
+	std::cout << "double: " << static_cast<double>(atof(str.c_str())) << std::endl;
 }
 
 int main(int ac, char **av){
 
-	if (ac > 2)
+	if (ac != 2)
 		return 1;
 	std::string str = av[1];
-	if (print(str))
-		return 1;
+	print(str, check(str));
 	return 0;
 }
